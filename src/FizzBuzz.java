@@ -4,24 +4,27 @@ public class FizzBuzz {
     public static void main(String [] args) {
 
         // variable for retry
-        String retry = "y";
-        Scanner input = new Scanner(System.in);
+        String retry = "y";     // initial variable for retry
+        Scanner number_input = new Scanner(System.in);      // scanner for number
+        Scanner retry_input = new Scanner(System.in);       // scanner for retry
 
-        //retry loop to run it multiple times
+        // loop for retry
         while (retry.equals("y")) {
-            Scanner reader = new Scanner(System.in);
             System.out.print("Enter a number for FizzBuzz Program: ");
-            int n = reader.nextInt();
+            int number = number_input.nextInt();
 
-            // calls fizzBuzz method
-            fizzBuzz(n);
+            // for loop to generate fizzbuzz output
+            for(int i = 1; i <= number; i++){
+                fizzBuzz(i);    // calls fizzbuzz method
+            }
 
-            System.out.print("Would you like to do it again? <y/n>");
-
-            retry = input.nextLine();
+            System.out.print("Enter y for retry. Other to quit");   // asks user for retry
+            retry = retry_input.nextLine();
         }
 
     }
+
+    // method for fizzbuzz
     public static String fizzBuzz(int x){
 
         // Finding FizzBuzz
